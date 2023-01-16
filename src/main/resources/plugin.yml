@@ -1,0 +1,13 @@
+name: ST-GiftBox
+main: net.starly.giftbox.GiftBoxMain
+author: Starly Team
+website: https://discord.gg/TF8jqSJjCG
+
+description: GiftBox Plugin.
+
+api-version: 1.16
+version: 1.0
+
+commands:
+  giftbox:
+    aliases: [gb, 선물함]
