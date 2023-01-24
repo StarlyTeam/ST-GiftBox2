@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'net.starly.giftbox'
-version '1.0_Alpha'
+version '1.0'
 
 repositories {
     mavenCentral()
