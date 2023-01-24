@@ -5,6 +5,9 @@ website: https://discord.gg/TF8jqSJjCG
 
 description: GiftBox Plugin.
 
+softdepend:
+  - ST-Core
+
 api-version: 1.16
 version: 1.0
 
