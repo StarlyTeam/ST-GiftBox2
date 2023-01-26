@@ -71,7 +71,7 @@ items:
     amount: 1
     meta:
       displayName: "§b모두 수령"
-      lore:
+      lores:
         - "§6모든 아이템을 수령합니다."
 
   # 빈칸 아이템 (슬롯: 45~48, 50~53)
