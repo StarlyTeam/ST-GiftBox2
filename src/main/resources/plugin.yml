@@ -13,4 +13,4 @@ api-version: 1.13
 
 commands:
   giftbox:
-    aliases: [gb, 선물함]
+    aliases: [ gb, 선물함 ]
