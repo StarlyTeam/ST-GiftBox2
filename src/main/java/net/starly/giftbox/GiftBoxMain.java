@@ -2,8 +2,8 @@ package net.starly.giftbox;
 
 import net.starly.core.bstats.Metrics;
 import net.starly.core.data.Config;
-import net.starly.giftbox.command.GiftBoxCmdTab;
-import net.starly.giftbox.command.GiftBoxCommand;
+import net.starly.giftbox.command.tabcomplete.GiftBoxTab;
+import net.starly.giftbox.command.GiftBoxCmd;
 import net.starly.giftbox.listener.InventoryClickListener;
 import net.starly.giftbox.listener.InventoryCloseListener;
 import org.bukkit.Bukkit;
@@ -18,7 +18,7 @@ public class GiftBoxMain extends JavaPlugin {
         // DEPENDENCY
         if (Bukkit.getPluginManager().getPlugin("ST-Core") == null) {
             Bukkit.getLogger().warning("[" + plugin.getName() + "] ST-Core 플러그인이 적용되지 않았습니다! 플러그인을 비활성화합니다.");
-            Bukkit.getLogger().warning("[" + plugin.getName() + "] 다운로드 링크 : &fhttps://discord.gg/TF8jqSJjCG");
+            Bukkit.getLogger().warning("[" + plugin.getName() + "] 다운로드 링크 : &fhttp://starly.kr/discord");
             Bukkit.getPluginManager().disablePlugin(this);
             return;
         }
@@ -36,8 +36,8 @@ public class GiftBoxMain extends JavaPlugin {
 
 
         // COMMANDS
-        Bukkit.getPluginCommand("giftbox").setExecutor(new GiftBoxCommand());
-        Bukkit.getPluginCommand("giftbox").setTabCompleter(new GiftBoxCmdTab());
+        Bukkit.getPluginCommand("giftbox").setExecutor(new GiftBoxCmd());
+        Bukkit.getPluginCommand("giftbox").setTabCompleter(new GiftBoxTab());
 
 
         // EVENTS

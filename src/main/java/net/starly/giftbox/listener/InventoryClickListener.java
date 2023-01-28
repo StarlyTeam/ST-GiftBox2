@@ -3,16 +3,14 @@ package net.starly.giftbox.listener;
 import net.starly.core.util.InventoryUtil;
 import net.starly.giftbox.data.PlayerGiftBoxData;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryAction;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.List;
+import java.util.Arrays;
 
 import static net.starly.giftbox.GiftBoxMain.config;
 import static net.starly.giftbox.data.InventoryOpenMap.inventoryOpenMap;
@@ -23,7 +21,7 @@ public class InventoryClickListener implements Listener {
         Player p = (Player) e.getWhoClicked();
         if (!inventoryOpenMap.containsKey(p)) return;
 
-        if (e.getAction() == InventoryAction.HOTBAR_MOVE_AND_READD || e.getAction() == InventoryAction.HOTBAR_SWAP || e.getClick() == ClickType.SWAP_OFFHAND) {
+        if (e.getAction() == InventoryAction.HOTBAR_MOVE_AND_READD || e.getAction() == InventoryAction.HOTBAR_SWAP) {
             e.setCancelled(true);
             return;
         }
@@ -59,7 +57,7 @@ public class InventoryClickListener implements Listener {
             playerGiftBoxData.clearItems();
 
             p.sendMessage(config.getMessage("messages.all_received"));
-        } else if (List.of(45, 46, 47, 48, 50, 51, 52, 53).contains(slotNum)) {
+        } else if (Arrays.asList(45, 46, 47, 48, 50, 51, 52, 53).contains(slotNum)) {
             // 빈칸 아이템 클릭
 
             e.setCancelled(true);

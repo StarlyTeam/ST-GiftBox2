@@ -1,15 +1,15 @@
 name: ST-GiftBox
 main: net.starly.giftbox.GiftBoxMain
 author: Starly Team
-website: https://discord.gg/TF8jqSJjCG
+website: http://starly.kr/discord
 
 description: GiftBox Plugin.
 
 softdepend:
   - ST-Core
 
-api-version: 1.16
-version: 1.0
+version: 1.1
+api-version: 1.13
 
 commands:
   giftbox:

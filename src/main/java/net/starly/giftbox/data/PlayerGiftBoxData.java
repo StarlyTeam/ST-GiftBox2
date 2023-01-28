@@ -3,13 +3,13 @@ package net.starly.giftbox.data;
 import net.starly.core.data.Config;
 import net.starly.giftbox.GiftBoxMain;
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static net.starly.giftbox.data.InventoryOpenMap.inventoryOpenMap;
@@ -64,13 +64,11 @@ public class PlayerGiftBoxData {
 
     private Inventory getInventory() {
         Inventory inventory = Bukkit.createInventory(null, 54, "§6" + owner.getName() + "§f님의 선물함");
-//        ItemStack emptySlot = config.getItemStack("items.empty");
-        ItemStack emptySlot = new ItemStack(Material.BLACK_STAINED_GLASS_PANE, 1); //TODO
-//        ItemStack receiptAll = config.getItemStack("items.receipt_all");
-        ItemStack receiptAll = new ItemStack(Material.END_CRYSTAL, 1); //TODO
+        ItemStack emptySlot = config.getItemStack("items.empty");
+        ItemStack receiptAll = config.getItemStack("items.receipt_all");
 
         items.forEach(item -> inventory.setItem(items.indexOf(item), item));
-        List.of(45, 46, 47, 48, 50, 51, 52, 53).forEach(slot -> inventory.setItem(slot, emptySlot));
+        Arrays.asList(45, 46, 47, 48, 50, 51, 52, 53).forEach(slot -> inventory.setItem(slot, emptySlot));
         inventory.setItem(49, receiptAll);
 
         return inventory;
