@@ -94,15 +94,21 @@ public class GiftBoxCmd implements CommandExecutor {
                     }
 
                     targets.addAll(Bukkit.getOnlinePlayers());
+                    targets.remove(player);
                 } else {
                     OfflinePlayer target = Bukkit.getOfflinePlayer(args[1]);
-                    if (target.getUniqueId() == player.getUniqueId()) {
-                        player.sendMessage(config.getMessage("messages.cannot_send_self"));
-                        return true;
-                    } else if (target == null) {
+
+                    if (!target.hasPlayedBefore()) {
                         player.sendMessage(config.getMessage("messages.player_not_found"));
                         return true;
                     }
+
+                    if (target.getPlayer() == player) {
+                        player.sendMessage(config.getMessage("messages.cannot_send_self"));
+                        return true;
+                    }
+
+                    targets.add(target);
                 }
 
                 ItemStack item = player.getInventory().getItemInMainHand();

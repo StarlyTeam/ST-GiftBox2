@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="219ed1fb-788a-41a5-8823-d0281bf49794" name="Changes" comment="style: Code">
+    <list default="true" id="219ed1fb-788a-41a5-8823-d0281bf49794" name="Changes" comment="fix: Bugs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/starly/giftbox/command/tabcomplete/GiftBoxTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/starly/giftbox/command/tabcomplete/GiftBoxTab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/starly/giftbox/data/PlayerGiftBoxData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/starly/giftbox/data/PlayerGiftBoxData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/starly/giftbox/command/GiftBoxCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/starly/giftbox/command/GiftBoxCmd.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +126,9 @@
       <workItem from="1674894505496" duration="5046000" />
       <workItem from="1674902345009" duration="6000" />
       <workItem from="1674905614313" duration="717000" />
-      <workItem from="1675759764087" duration="618000" />
+      <workItem from="1675759764087" duration="1283000" />
+      <workItem from="1675763011544" duration="7000" />
+      <workItem from="1675764683885" duration="740000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1673861191848</created>
@@ -172,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674901456729</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="fix: Bugs">
+      <created>1675760442818</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1675760442818</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -185,6 +192,7 @@
     <MESSAGE value="fix: Typo" />
     <MESSAGE value="style: Code&#10;fix: Bugs&#10;modify: Version" />
     <MESSAGE value="style: Code" />
-    <option name="LAST_COMMIT_MESSAGE" value="style: Code" />
+    <MESSAGE value="fix: Bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: Bugs" />
   </component>
 </project>
