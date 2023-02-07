@@ -47,7 +47,7 @@ public class InventoryClickListener implements Listener {
             if (playerGiftBoxData.getItems().size() == 0) {
                 p.sendMessage(config.getMessage("messages.empty"));
                 return;
-            } else if (new InventoryUtil().getSpace(p.getInventory()) - 5 < playerGiftBoxData.getItems().size()) {
+            } else if (InventoryUtil.getSpace(p.getInventory()) - 5 < playerGiftBoxData.getItems().size()) {
                 p.sendMessage(config.getMessage("messages.cannot_receive"));
                 return;
             }
@@ -65,7 +65,7 @@ public class InventoryClickListener implements Listener {
             // 일반 아이템 클릭
 
             if (e.getClickedInventory() == p.getInventory()) return;
-            if (new InventoryUtil().getSpace(p.getInventory()) - 5 < 1) {
+            if (InventoryUtil.getSpace(p.getInventory()) - 5 < 1) {
                 p.sendMessage(config.getMessage("messages.cannot_receive"));
                 return;
             }
