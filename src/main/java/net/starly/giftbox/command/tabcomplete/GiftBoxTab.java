@@ -28,7 +28,7 @@ public class GiftBoxTab implements TabCompleter {
 
             return completions;
         } else if (args.length == 2) {
-            if (Arrays.asList("보기", "open").contains(args[0].toLowerCase())) {
+            if (Arrays.asList("열기", "open").contains(args[0].toLowerCase())) {
                 if (sender.hasPermission("starly.giftbox.open.other")) return null;
             } else if (Arrays.asList("보내기", "send").contains(args[0].toLowerCase())) {
                 if (sender.hasPermission("starly.giftbox.send")) return null;

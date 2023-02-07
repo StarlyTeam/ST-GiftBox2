@@ -64,8 +64,8 @@ public class PlayerGiftBoxData {
 
     private Inventory getInventory() {
         Inventory inventory = Bukkit.createInventory(null, 54, "§6" + owner.getName() + "§f님의 선물함");
-        ItemStack emptySlot = config.getItemStack("items.empty");
-        ItemStack receiptAll = config.getItemStack("items.receipt_all");
+        ItemStack emptySlot = GiftBoxMain.config.getItemStack("items.empty");
+        ItemStack receiptAll = GiftBoxMain.config.getItemStack("items.receipt_all");
 
         items.forEach(item -> inventory.setItem(items.indexOf(item), item));
         Arrays.asList(45, 46, 47, 48, 50, 51, 52, 53).forEach(slot -> inventory.setItem(slot, emptySlot));

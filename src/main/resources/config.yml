@@ -76,7 +76,7 @@ items:
 
   # 빈칸 아이템 (슬롯: 45~48, 50~53)
   empty:
-    material: "GLASS"
+    material: "BLACK_STAINED_GLASS_PANE"
     amount: 1
     meta:
       displayName: "§r"
