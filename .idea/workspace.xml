@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="219ed1fb-788a-41a5-8823-d0281bf49794" name="Changes" comment="fix: Bugs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/starly/giftbox/command/GiftBoxCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/starly/giftbox/command/GiftBoxCmd.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,6 +129,9 @@
       <workItem from="1675763011544" duration="7000" />
       <workItem from="1675764683885" duration="842000" />
       <workItem from="1675765673614" duration="16000" />
+      <workItem from="1675780064194" duration="78000" />
+      <workItem from="1675993385689" duration="1288000" />
+      <workItem from="1675995661548" duration="597000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1673861191848</created>
@@ -185,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675765468440</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fix: Bugs">
+      <created>1675780136469</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1675780136469</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

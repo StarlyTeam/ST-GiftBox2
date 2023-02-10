@@ -98,7 +98,7 @@ public class GiftBoxCmd implements CommandExecutor {
                 } else {
                     OfflinePlayer target = Bukkit.getOfflinePlayer(args[1]);
 
-                    if (!target.hasPlayedBefore()) {
+                    if (!(target.hasPlayedBefore() || target.isOnline())) {
                         player.sendMessage(config.getMessage("messages.player_not_found"));
                         return true;
                     }
