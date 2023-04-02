@@ -16,16 +16,15 @@ public class GiftBoxMain extends JavaPlugin {
     @Override
     public void onEnable() {
         // DEPENDENCY
-        if (Bukkit.getPluginManager().getPlugin("ST-Core") == null) {
-            Bukkit.getLogger().warning("[" + plugin.getName() + "] ST-Core 플러그인이 적용되지 않았습니다! 플러그인을 비활성화합니다.");
-            Bukkit.getLogger().warning("[" + plugin.getName() + "] 다운로드 링크 : §fhttp://starly.kr/discord");
-            Bukkit.getPluginManager().disablePlugin(this);
+        if (!isPluginEnabled("net.starly.core.StarlyCore")) {
+            getServer().getLogger().warning("[" + getName() + "] ST-Core 플러그인이 적용되지 않았습니다! 플러그인을 비활성화합니다.");
+            getServer().getLogger().warning("[" + getName() + "] 다운로드 링크 : §fhttp://starly.kr/");
+            getServer().getPluginManager().disablePlugin(this);
             return;
         }
 
 
         plugin = this;
-
         new Metrics(plugin, 17440);
 
 
@@ -36,16 +35,25 @@ public class GiftBoxMain extends JavaPlugin {
 
 
         // COMMANDS
-        Bukkit.getPluginCommand("giftbox").setExecutor(new GiftBoxCmd());
-        Bukkit.getPluginCommand("giftbox").setTabCompleter(new GiftBoxTab());
+        getServer().getPluginCommand("giftbox").setExecutor(new GiftBoxCmd());
+        getServer().getPluginCommand("giftbox").setTabCompleter(new GiftBoxTab());
 
 
         // EVENTS
-        Bukkit.getPluginManager().registerEvents(new InventoryClickListener(), plugin);
-        Bukkit.getPluginManager().registerEvents(new InventoryCloseListener(), plugin);
+        getServer().getPluginManager().registerEvents(new InventoryClickListener(), plugin);
+        getServer().getPluginManager().registerEvents(new InventoryCloseListener(), plugin);
     }
 
     public static JavaPlugin getPlugin() {
         return plugin;
+    }
+
+    private boolean isPluginEnabled(String path) {
+        try {
+            Class.forName(path);
+            return true;
+        } catch (NoClassDefFoundError ignored) {
+        } catch (Exception ex) { ex.printStackTrace(); }
+        return false;
     }
 }
