@@ -52,11 +52,13 @@ public class PlayerGiftBoxData {
     }
 
     private void saveItems() {
-        config.createSection("items");
+        config.getConfig().createSection("items");
         for (int i = 0; i < items.size(); i++) {
             ItemStack item = items.get(i);
             config.setObject("items." + i, EncodeUtil.encode(item));
         }
+
+        config.saveConfig();
     }
 
     public void openInventory(Player p) {
