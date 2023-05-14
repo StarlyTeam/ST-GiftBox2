@@ -1,5 +1,7 @@
 package net.starly.giftbox.command;
 
+import net.starly.core.data.Config;
+import net.starly.giftbox.GiftBoxMain;
 import net.starly.giftbox.data.PlayerGiftBoxData;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -7,8 +9,11 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -85,6 +90,19 @@ public class GiftBoxCmd implements CommandExecutor {
                     player.sendMessage(config.getMessage("messages.wrong_command"));
                     return true;
                 }
+
+
+                Plugin quickMenuPlugin = GiftBoxMain.getInstance().getServer().getPluginManager().getPlugin("ST-QuickMenu");
+                if (quickMenuPlugin != null && quickMenuPlugin.isEnabled()) {
+                    FileConfiguration quickMenuConfig = quickMenuPlugin.getConfig();
+
+                    int selectedSlot = player.getInventory().getHeldItemSlot();
+                    if (quickMenuConfig.getStringList("default.open-type").contains("ICON")
+                            && quickMenuConfig.getInt("default.icon.slot") == selectedSlot) {
+                        player.sendMessage(config.getString("messages.prefix"));
+                    }
+                }
+
 
                 List<OfflinePlayer> targets = new ArrayList<>();
                 if (args[1].equalsIgnoreCase("@a")) {
