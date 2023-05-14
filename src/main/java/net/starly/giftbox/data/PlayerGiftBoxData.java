@@ -2,6 +2,7 @@ package net.starly.giftbox.data;
 
 import net.starly.core.data.Config;
 import net.starly.giftbox.GiftBoxMain;
+import net.starly.giftbox.util.EncodeUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
@@ -22,12 +23,12 @@ public class PlayerGiftBoxData {
     public PlayerGiftBoxData(OfflinePlayer owner) {
         this.owner = owner;
 
-        this.config = new Config("data/" + owner.getUniqueId(), GiftBoxMain.getPlugin());
+        this.config = new Config("data/" + owner.getUniqueId(), GiftBoxMain.getInstance());
         config.loadDefaultConfig();
 
         if (config.getConfigurationSection("items") == null) config.createSection("items");
         config.getConfigurationSection("items").getKeys(false).forEach(key -> {
-            items.add(Integer.parseInt(key), config.getItemStack("items." + key));
+            items.add(Integer.parseInt(key), EncodeUtil.decode((byte[]) config.getObject("items." + key), ItemStack.class));
         });
     }
 
@@ -51,10 +52,11 @@ public class PlayerGiftBoxData {
     }
 
     private void saveItems() {
-        config.getConfig().set("items", null);
-        config.saveConfig();
         config.createSection("items");
-        items.forEach(item -> config.setItemStack("items." + items.indexOf(item), item));
+        for (int i = 0; i < items.size(); i++) {
+            ItemStack item = items.get(i);
+            config.setObject("items." + i, EncodeUtil.encode(item));
+        }
     }
 
     public void openInventory(Player p) {
@@ -67,7 +69,7 @@ public class PlayerGiftBoxData {
         ItemStack emptySlot = GiftBoxMain.config.getItemStack("items.empty");
         ItemStack receiptAll = GiftBoxMain.config.getItemStack("items.receipt_all");
 
-        items.forEach(item -> inventory.setItem(items.indexOf(item), item));
+        for (int i = 0; i < items.size(); i++) inventory.setItem(i, items.get(i));
         Arrays.asList(45, 46, 47, 48, 50, 51, 52, 53).forEach(slot -> inventory.setItem(slot, emptySlot));
         inventory.setItem(49, receiptAll);
 
