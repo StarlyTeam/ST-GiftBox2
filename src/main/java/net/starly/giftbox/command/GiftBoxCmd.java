@@ -4,6 +4,7 @@ import net.starly.core.data.Config;
 import net.starly.giftbox.GiftBoxMain;
 import net.starly.giftbox.data.PlayerGiftBoxData;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
@@ -98,8 +99,9 @@ public class GiftBoxCmd implements CommandExecutor {
 
                     int selectedSlot = player.getInventory().getHeldItemSlot();
                     if (quickMenuConfig.getStringList("default.open-type").contains("ICON")
-                            && quickMenuConfig.getInt("default.icon.slot") == selectedSlot) {
-                        player.sendMessage(config.getString("messages.prefix"));
+                            && quickMenuConfig.getInt("default.icon.slot") == selectedSlot + 1) {
+                        player.sendMessage(ChatColor.translateAlternateColorCodes('&', config.getString("messages.prefix")) + "§c퀵메뉴 아이콘은 선물할 수 없습니다.");
+                        return true;
                     }
                 }
 
