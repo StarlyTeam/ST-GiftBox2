@@ -9,7 +9,7 @@ import static net.starly.giftbox.data.InventoryOpenMap.inventoryOpenMap;
 
 public class InventoryCloseListener implements Listener {
     @EventHandler
-    public void onClose(InventoryCloseEvent e) {
-        inventoryOpenMap.remove((Player) e.getPlayer());
+    public void onClose(InventoryCloseEvent event) {
+        inventoryOpenMap.remove(event.getPlayer().getUniqueId());
     }
 }

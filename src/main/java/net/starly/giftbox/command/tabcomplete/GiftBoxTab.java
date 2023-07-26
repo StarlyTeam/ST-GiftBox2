@@ -13,6 +13,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class GiftBoxTab implements TabCompleter {
+
     @Nullable
     @Override
     public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, @NotNull String[] args) {

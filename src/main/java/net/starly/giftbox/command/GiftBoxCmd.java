@@ -23,6 +23,7 @@ import java.util.List;
 import static net.starly.giftbox.GiftBoxMain.config;
 
 public class GiftBoxCmd implements CommandExecutor {
+
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, @NotNull String[] args) {
         if (!(sender instanceof Player)) {

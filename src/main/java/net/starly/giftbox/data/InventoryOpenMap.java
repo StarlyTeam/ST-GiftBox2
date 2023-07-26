@@ -5,12 +5,9 @@ import org.bukkit.entity.Player;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 public class InventoryOpenMap {
-    /**
-     * key   : Inventory Opened Player.
-     * <br>
-     * value : GiftBox's Owner.
-     */
-    public static Map<Player, OfflinePlayer> inventoryOpenMap = new HashMap<>();
+
+    public static Map<UUID, OfflinePlayer> inventoryOpenMap = new HashMap<>();
 }

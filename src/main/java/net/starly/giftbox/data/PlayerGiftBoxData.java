@@ -16,6 +16,7 @@ import java.util.List;
 import static net.starly.giftbox.data.InventoryOpenMap.inventoryOpenMap;
 
 public class PlayerGiftBoxData {
+
     private final OfflinePlayer owner;
     private final Config config;
     private final List<ItemStack> items = new ArrayList<>();
@@ -61,9 +62,9 @@ public class PlayerGiftBoxData {
         config.saveConfig();
     }
 
-    public void openInventory(Player p) {
-        inventoryOpenMap.put(p, owner);
-        p.openInventory(getInventory());
+    public void openInventory(Player player) {
+        inventoryOpenMap.put(player.getUniqueId(), owner);
+        player.openInventory(getInventory());
     }
 
     private Inventory getInventory() {
